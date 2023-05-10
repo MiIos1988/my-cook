@@ -3,7 +3,19 @@ import getData from "./services/getData";
 
 const App = () => {
   useEffect(() => {
-    getData()
+    getData().then((result) => {
+      console.log(result)
+      // result.map((el, index) => {
+      //   return {
+      //     title: el.title,
+      //     instructions: el.instructions,
+      //     ingredients: [{ingredient: el.}]
+
+      //   }
+      // } )
+    }).catch((err) => {
+      
+    });
   }, []
   )
   return (
