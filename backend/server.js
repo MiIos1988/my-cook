@@ -12,7 +12,7 @@ mongoose.connect("mongodb+srv://vojvoda1988:vojvoda1988@cluster0.jit59eb.mongodb
 app.listen(port, (err) => {
     err ? console.log("Error on server start")
 
-        : console.log(`Server is running on port ${port}..`)
+        : console.log(`Server is running on port ${port}...`)
 
 }
 )
