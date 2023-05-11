@@ -6,8 +6,7 @@ const recipeSchema = mongoose.Schema({
     ingredients: { type: Array, default: [ {ingredient: { type: String }}, {quantity: { type: Number }}, {unit: { type: String }} ] },
     image: { type: String },
     readyInMinutes: { type: Number },
-    preparationMinutes: { type: Number },
-    vegetarian: { type: Boolean },
+    vegan: { type: Boolean },
 
 })
 
