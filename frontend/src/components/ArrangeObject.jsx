@@ -1,10 +1,13 @@
 
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import getData from '../services/getData';
+import { ContextDispatch, ContextRootState } from '../context/RootStoreContext';
 
 function ArrangeObject() {
     const [allRecipes, setAllRecipes] = useState([])
+    const context = useContext(ContextRootState)
+    const dispatchContext = useContext(ContextDispatch)
     useEffect(() => {
       getData().then((result) => {
         let newObj = result.map((el, index) => {
@@ -28,7 +31,12 @@ function ArrangeObject() {
     return (
       <div className="App">
         <h1>work</h1>
-        <button onClick={() => console.log(allRecipes)}>Send</button>
+        <button onClick={() => {
+          // console.log(allRecipes)
+          dispatchContext({...context, testValue: 'HOME'})
+          console.log(context)
+        }
+          }>Send</button>
       </div>
     );
 }

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import { ContextRootState } from '../context/RootStoreContext'
 
 const NavbarComponent = () => {
+    const context = useContext(ContextRootState)
+    console.log(context.testValue)
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
@@ -11,10 +14,10 @@ const NavbarComponent = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <Link className="nav-link active" aria-current="page" href="#">Home</Link>
+          <Link className="nav-link active" aria-current="page" href="#">{context.testValue}</Link>
           <Link className="nav-link" href="#">Features</Link>
           <Link className="nav-link" href="#">Pricing</Link>
-          <Link className="nav-link disabled">Disabled</Link>
+          <Link className="nav-link disabled">{context.testValue}</Link>
         </div>
       </div>
     </div>

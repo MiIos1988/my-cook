@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import routes from './routes/routes';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { RootStoreContext } from './context/RootStoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(routes)
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RootStoreContext>
+         <RouterProvider router={router}/>
+    </RootStoreContext>
     {/* <App /> */}
   </React.StrictMode>
 );
