@@ -7,15 +7,22 @@ import routes from './routes/routes';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { RootStoreContext } from './context/RootStoreContext';
+import { configureStore } from '@reduxjs/toolkit'
+import { provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(routes)
+const store = configureStore({
+  reducer: {navbarSlicer}
+})
 
 root.render(
   <React.StrictMode>
+    <provider store={store}>
     <RootStoreContext>
          <RouterProvider router={router}/>
     </RootStoreContext>
+    </provider>
     {/* <App /> */}
   </React.StrictMode>
 );
